@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   </head>
+   <body>
+      <div>
+         <h3>Einleitung</h3>
+         Die Programmiersprache AutomationLang, kurz AL, welcher sich dieser Text
+         widmet, ist meine erste Programmiersprache (wobei es sich um eine recht
+         einfache DSL (Domain specific language) handelt). Sie dient zur einfachen
+         Erzeugung von Endlichen und Mealy Automaten im akademisch-schulichen Bereich.
+         Und jetzt bin ich auch schon beim Grund, weshalb ich diese Programmiersprache
+         geschrieben habe: Die Erzeugung von Automaten mit der im Informatikunterricht
+         verwendeten Software JLAP ist recht zeitaufwendig, besonders wenn ein
+         bestimmter Zustandswechsel bei mehreren Zahlen und/oder Buchstaben benötigt
+         wird. Und da ich faul bin habe ich dann vor kurzem im Informatikunterricht
+         herrumgwitzelt, das ich eine Programmiersprache schreibe, welche die
+         zeitaufwendige Arbeit abnimmt. Jetzt kamen noch zwei Faktoren hinzu, die
+         die dieser DSL zur ihrer Existenz verhelfen: 1. ich habe mir nach dem 
+         schriftlichen Abitur das Buch "The Definitive ANTLR Reference - Building
+         Domain-Specific Languages" von Terence Parr über den Parser- und
+         Lexer-Generator ANTLR (mit welchem auch Parser und Lexer dieser DSL
+         erzeugt wurden) gekauft. 2. Ich habe aufgrund von "Schriftlichen-Abitur-Korrekturferien"
+         5 Tage am Stück frei.<br/>
+         Der Editor dieser Sprache ist jedoch, wie besonders am Code ersichtlich
+         wird (da ich zu faul bin, die meisten Codekommentare zu berichtigen),
+         auf einem Editor, welchen ich für die Projektarbeit für den Informatikunterricht
+         Mitte 2011 geschrieben habe.<br/>
+         Jetzt zur Sprache an sich. Wie oben schon geschrieben, war das Ziel bei
+         der Entwicklung dieser Sprache, eine DSL zu schreiben, mit welcher es
+         möglichst einfach ist Automaten zu programmieren und welche mit JFLAP
+         verwendbar ist. Aus ersterem Grund, und natürlich aus Gründen der einfachen
+         Implentierbarkeit, hat diese DSL einen sehr stark eingeschränkten
+         Syntaxumfang und aus zweiterem, erzeugt der Editor bei jedem Ausführen
+         des Programms nicht nur einen Automaten-Baum, sondern auch eine .jff Datei
+         welche in JFLAP importiert werden kann.<br/>
+         Die Syntax der Syntax der Sprache ist an die der ANTLR-Grammatiksprache
+         und jene von Ruby angelehnt.
+         <h3>Aufbau eines Programms</h3>
+         Ein Programm besteht grob gesagt aus einem Options-Teil,
+         Zustandsdeklarierungen und Zustandswechselndeklarierungen. Alle diese
+         Bestandteile sind optional, d.h. sie sind nicht unbedingt notwendig.
+         <h4>Options</h4>
+         <h4>Zustanddeklarierung</h4>
+         <h4>Zustandswechsel</h4>
+         <h4>Kommentare</h4>
+         Mehrzeilge Kommentare werden, analog zu Java, C, usw., folgendermaßen
+         geschrieben: <pre>/*[...]*/</pre>. Einzeilige Kommentare sind per
+         <pre>//</pre> und <pre>#</pre> möglich.        
+      </div>
+   </body>
+</html>
