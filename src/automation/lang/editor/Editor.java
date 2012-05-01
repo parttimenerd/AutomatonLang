@@ -14,7 +14,12 @@ import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -24,7 +29,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * Editor
- * 
+ *
  * @author Johannes Bechberger
  */
 public class Editor extends javax.swing.JFrame {
@@ -38,6 +43,9 @@ public class Editor extends javax.swing.JFrame {
     */
    public static Writer writer;
    private Timer timer;
+   private final String[] EXAMPLES = new String[]{
+      "Gerade_Zahlen.al"
+   };
 
    /**
     * Creates new form Editor
@@ -604,7 +612,7 @@ public class Editor extends javax.swing.JFrame {
         tabbed_pane_unten.addTab("Automat testen", automat_testen_panel);
 
         jflap_testarea.setColumns(20);
-        jflap_testarea.setFont(new java.awt.Font("Monospaced", 0, 8)); // NOI18N
+        jflap_testarea.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         jflap_testarea.setRows(5);
         jScrollPane4.setViewportView(jflap_testarea);
 
@@ -1162,27 +1170,7 @@ public class Editor extends javax.swing.JFrame {
    }//GEN-LAST:event_automat_testen_panelFocusGained
 
    private void autesten_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autesten_buttonActionPerformed
-      String phrase = (String) autesten_ausdruck_box.getSelectedItem();
-      Panel panel = getCurrentPanel();
-      panel.addTestPhrase(phrase);
-      autesten_ausgabe.setText("Erzeuge Baum...");
-      panel.simpleExecute();
-      autesten_ausgabe.setText("Teste Ausdruck...");
-      Tree tree = panel.getTree();
-      long time = System.currentTimeMillis();
-      TestReturn ret = tree.test(phrase);
-      System.out.println("Test phrase (" + (System.currentTimeMillis() - time) + "ms)...");
-      if (tree.getMode() == Tree.Mode.FINITE) {
-         if (ret.succeeded) {
-            autesten_ausgabe.setBackground(Color.GREEN.brighter().brighter());
-            autesten_ausgabe.setText("Akzeptiert");
-         } else {
-            autesten_ausgabe.setBackground(Color.RED.brighter().brighter());
-            autesten_ausgabe.setText("Nicht akzeptiert");
-         }
-      } else if (tree.getMode() == Tree.Mode.MEALY) {
-         autesten_ausgabe.setText(ret.text);
-      }
+      test();
    }//GEN-LAST:event_autesten_buttonActionPerformed
 
    private void errors_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_errors_tableMouseClicked
@@ -1316,7 +1304,7 @@ public class Editor extends javax.swing.JFrame {
     */
    public void öffnen(File[] files) {
       for (File file : files) {
-         if (file.exists() && !file.isDirectory() && (file.getName().endsWith(FILE_ENDING) || file.getName().endsWith(".js"))) {
+         if (file.exists() && !file.isDirectory() && file.getName().endsWith(FILE_ENDING)) {
             Panel panel = new Panel();
             try {
                panel.öffnen(file);
@@ -1378,23 +1366,28 @@ public class Editor extends javax.swing.JFrame {
    }
 
    private void loadExamples() {
-      File dir = new File(getClass().getResource("/automation/lang/editor/resources/examples").getFile());
-      for (File file : dir.listFiles()) {
+      int num = 0;
+      for (String path : EXAMPLES) {
+         path = "/automation/lang/editor/resources/examples/" + path;
+         path = getClass().getResource(path).getPath();
+         File file = new File(path);
          if (file.getName().endsWith(FILE_ENDING)) {
             JMenuItem item = new JMenuItem();
             item.setText(file.getName().replace('_', ' ').substring(0, file.getName().replace('_', ' ').length() - 3));
-            item.setActionCommand(file.getAbsolutePath());
+            item.setActionCommand(num + "");
             beispiele_menu.add(item);
             item.addActionListener(new ActionListener() {
 
                @Override
                public void actionPerformed(ActionEvent e) {
+                  String path = "/automation/lang/editor/resources/examples/" + EXAMPLES[Integer.parseInt(e.getActionCommand())];
                   öffnen(new File[]{
-                             new File(e.getActionCommand())
+                             new File(getClass().getResource(path).getFile())
                           });
                }
             });
          }
+         num++;
       }
    }
 
@@ -1444,6 +1437,32 @@ public class Editor extends javax.swing.JFrame {
       String ser = panel.getTree().serialize();
       if (jflap_testarea.getText() != ser) {
          jflap_testarea.setText(ser);
+      }
+   }
+
+   private void test() {
+      String phrase = (String) autesten_ausdruck_box.getSelectedItem();
+      Panel panel = getCurrentPanel();
+      panel.addTestPhrase(phrase);
+      panel.simpleExecute();
+      Tree tree = panel.getTree();
+      long time = System.currentTimeMillis();
+      TestReturn ret = tree.test(phrase);
+      System.out.println("Test phrase (" + (System.currentTimeMillis() - time) + "ms)...");
+      String str = "";
+      if (tree.getMode() == Tree.Mode.FINITE) {
+         if (ret.succeeded) {
+            autesten_ausgabe.setBackground(Color.GREEN.brighter().brighter());
+            str = "Akzeptiert";
+         } else {
+            autesten_ausgabe.setBackground(Color.RED.brighter().brighter());
+            str = "Nicht akzeptiert";
+         }
+      } else if (tree.getMode() == Tree.Mode.MEALY) {
+         str = ret.text;
+      }
+      if (!str.equals(autesten_ausgabe.getText())) {
+         autesten_ausgabe.setText(str);
       }
    }
 }
