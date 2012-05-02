@@ -14,8 +14,12 @@ public class Help extends javax.swing.JFrame {
     public Help() {
         initComponents();
         try {
-            textpane.setPage(getClass().getResource("/automation/lang/editor/resources/docs/hilfe.html"));
-            textpane2.setPage(getClass().getResource("/automation/lang/editor/resources/docs/editorbedienung.html"));
+           String app = getLocale().getLanguage() == "de" ? "_de" : "_en";
+            textpane.setPage(getClass().getResource("/automation/lang/editor/resources/docs/hilfe" + app + ".html"));
+            textpane2.setPage(getClass().getResource("/automation/lang/editor/resources/docs/editorbedienung" + app + ".html"));
+            textpane3.setPage(getClass().getResource("/automation/lang/editor/resources/docs/beispiele" + app + ".html"));
+            textpane4.setPage(getClass().getResource("/automation/lang/editor/resources/docs/copyright" + app + ".html"));
+            textpane4.setPage(getClass().getResource("/automation/lang/editor/resources/docs/release_notes" + app + ".html"));
         } catch (IOException ex) {
             Logger.getLogger(Help.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -35,6 +39,12 @@ public class Help extends javax.swing.JFrame {
         textpane = new javax.swing.JTextPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         textpane2 = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textpane3 = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        textpane4 = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        textpane5 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Hilfe");
@@ -45,7 +55,7 @@ public class Help extends javax.swing.JFrame {
 
         textpane.setContentType("text/html");
         textpane.setEditable(false);
-        textpane.setText("<html>\r\n  <head>\r\n\r\n  </head>\r\n  <body>\r\n    <p style=\"margin-top: 0\">\r\n      \rComing soon... For questions ask the author...\n    </p>\r\n  </body>\r\n</html>\r\n");
+        textpane.setText("\n");
         scroll_pane.setViewportView(textpane);
 
         tabbedpane.addTab("Hilfe", scroll_pane);
@@ -55,15 +65,30 @@ public class Help extends javax.swing.JFrame {
 
         tabbedpane.addTab("Editorbedienung", jScrollPane1);
 
+        textpane3.setEditable(false);
+        jScrollPane2.setViewportView(textpane3);
+
+        tabbedpane.addTab("Beispiele", jScrollPane2);
+
+        textpane4.setEditable(false);
+        jScrollPane3.setViewportView(textpane4);
+
+        tabbedpane.addTab("Version und Copyright", jScrollPane3);
+
+        textpane5.setEditable(false);
+        jScrollPane4.setViewportView(textpane5);
+
+        tabbedpane.addTab("Version und Copyright", jScrollPane4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedpane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+            .addComponent(tabbedpane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(tabbedpane, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
         );
 
         pack();
@@ -83,10 +108,16 @@ public class Help extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane scroll_pane;
     private javax.swing.JTabbedPane tabbedpane;
     private javax.swing.JTextPane textpane;
     private javax.swing.JTextPane textpane2;
+    private javax.swing.JTextPane textpane3;
+    private javax.swing.JTextPane textpane4;
+    private javax.swing.JTextPane textpane5;
     // End of variables declaration//GEN-END:variables
 
 }

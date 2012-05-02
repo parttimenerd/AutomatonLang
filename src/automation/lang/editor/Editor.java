@@ -174,6 +174,8 @@ public class Editor extends javax.swing.JFrame {
         preview_scrollpane = new javax.swing.JScrollPane();
         preview_textpane = new javax.swing.JTextPane();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        beispiele_menu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         toolbar = new javax.swing.JToolBar();
         öffnen_button = new javax.swing.JButton();
         ausführen_button = new javax.swing.JButton();
@@ -234,9 +236,9 @@ public class Editor extends javax.swing.JFrame {
         ausgabefenster_klären_item = new javax.swing.JMenuItem();
         zeilen_bruch_item = new javax.swing.JRadioButtonMenuItem();
         regelmäßig_alle_speichern_item = new javax.swing.JRadioButtonMenuItem();
-        beispiele_menu = new javax.swing.JMenu();
         hilfe_menu = new javax.swing.JMenu();
         sprachhilfe_item = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         file_chooser.setAccessory(preview_scrollpane);
         file_chooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
@@ -275,6 +277,10 @@ public class Editor extends javax.swing.JFrame {
         preview_scrollpane.setViewportView(preview_textpane);
 
         jFormattedTextField1.setText("jFormattedTextField1");
+
+        beispiele_menu.setText("Beispiele");
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Editor");
@@ -830,14 +836,10 @@ public class Editor extends javax.swing.JFrame {
         });
         editor_menu.add(zeilen_bruch_item);
 
-        regelmäßig_alle_speichern_item.setSelected(true);
         regelmäßig_alle_speichern_item.setText("Regelmäßig alle Dateien speichern?");
         editor_menu.add(regelmäßig_alle_speichern_item);
 
         menu_bar.add(editor_menu);
-
-        beispiele_menu.setText("Beispiele");
-        menu_bar.add(beispiele_menu);
 
         hilfe_menu.setText("Hilfe");
 
@@ -850,6 +852,14 @@ public class Editor extends javax.swing.JFrame {
             }
         });
         hilfe_menu.add(sprachhilfe_item);
+
+        jMenuItem3.setText("Version und Autor");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        hilfe_menu.add(jMenuItem3);
 
         menu_bar.add(hilfe_menu);
 
@@ -1177,6 +1187,10 @@ public class Editor extends javax.swing.JFrame {
       // TODO add your handling code here:
    }//GEN-LAST:event_errors_tableMouseClicked
 
+   private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+      new Help();
+   }//GEN-LAST:event_jMenuItem3ActionPerformed
+
    /**
     * @param args the command line arguments
     */
@@ -1244,6 +1258,8 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JMenu hilfe_menu;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

@@ -78,8 +78,8 @@ public class State {
          for (Transition transition : transitions) {
             if (phrase.startsWith(transition.getWord())) {
                String new_phrase = phrase.substring(transition.getWord().length());
-               if (new_phrase == null || new_phrase.length() == 0) {
-                  return new TestReturn(transition.getTo().isFinal_state(), transition.getWord());
+               if ((new_phrase == null || new_phrase.length() == 0) && transition.getTo().isFinal_state()) {
+                  return new TestReturn(true, transition.getWord());
                } else {
                   TestReturn obj = transition.getTo().test(new_phrase);
                   if (obj.succeeded) {

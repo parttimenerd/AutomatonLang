@@ -51,6 +51,20 @@
         <Property name="text" type="java.lang.String" value="jFormattedTextField1"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JMenu" name="beispiele_menu">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Beispiele"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+    </Container>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="menu_bar">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="script_menu">
@@ -339,16 +353,10 @@
             </MenuItem>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="regelm&#xe4;&#xdf;ig_alle_speichern_item">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Regelm&#xe4;&#xdf;ig alle Dateien speichern?"/>
               </Properties>
             </MenuItem>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="beispiele_menu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Beispiele"/>
-          </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="hilfe_menu">
           <Properties>
@@ -367,6 +375,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sprachhilfe_itemActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Version und Autor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

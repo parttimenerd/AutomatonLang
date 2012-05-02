@@ -90,7 +90,7 @@ package automation.lang;
 prog: stat*
    {if (final_id == "" && last_id != "") getState(last_id).setFinal_state(true); tree.redistributeStates();};
 
-stat	: (declaration | transition | var_def | options_rule) (NEWLINE | EOF)
+stat	: (declaration | transition | var_def | options_rule) COMMENT? (NEWLINE | EOF)
 	| NEWLINE
 	;
 	
@@ -117,7 +117,6 @@ declaration
 	{
 	String label = gsv($STRING.text) != "" ? gsv($STRING.text) : $ID.text;
         boolean is_final = flags == null ? false : flags.contains("final");
-        System.out.println(flags);
 	State state = tree.createState(label, is_final);
 	if (is_final){
                 final_id = label;
@@ -261,7 +260,7 @@ INT :	('+'|'-')?('0'..'9')+
 PERCENT	: ('0'..'9')+ '%'
 	;
 COMMENT
-    :   ('//' | '#') ~('\n'|'\r')* NEWLINE {$channel=HIDDEN;}
+    :   ('//' | '#') ~('\n'|'\r')* {$channel=HIDDEN;}
     |   '/*' ( options {greedy=false;} : . )* '*/' {$channel=HIDDEN;}
     ;
 STRING
