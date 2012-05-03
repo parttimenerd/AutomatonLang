@@ -1,6 +1,6 @@
 // $ANTLR 3.4 C:\\Users\\Johannes\\Code\\Automation\\src\\automation\\lang\\AutomationLang.g 2012-04-29 18:53:34
 
-package automation.lang;
+package automatonlang;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.io.FileWriter;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked"})
-public class AutomationLangParser extends Parser {
+public class AutomatonLangParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "CHAR", "COMMENT", "ESC_SEQ", "FLAG", "HEX_DIGIT", "ID", "INT", "NEWLINE", "OCTAL_ESC", "PERCENT", "STRING", "UNICODE_ESC", "WS", "','", "'-'", "'..'", "'...'", "':'", "'='", "'>'", "'\\('", "'\\)'", "'\\['", "']'", "'circular'", "'distribution'", "'end'", "'finite'", "'height'", "'mealy'", "'mode'", "'options'", "'random'", "'width'", "'{'", "'}'", "'~'"
     };
@@ -66,14 +66,14 @@ public class AutomationLangParser extends Parser {
     // delegators
 
 
-    public AutomationLangParser(TokenStream input) {
+    public AutomatonLangParser(TokenStream input) {
         this(input, new RecognizerSharedState());
     }
-    public AutomationLangParser(TokenStream input, RecognizerSharedState state) {
+    public AutomatonLangParser(TokenStream input, RecognizerSharedState state) {
         super(input, state);
     }
 
-    public String[] getTokenNames() { return AutomationLangParser.tokenNames; }
+    public String[] getTokenNames() { return AutomatonLangParser.tokenNames; }
     public String getGrammarFileName() { return "C:\\Users\\Johannes\\Code\\Automation\\src\\automation\\lang\\AutomationLang.g"; }
 
 
@@ -113,7 +113,7 @@ public class AutomationLangParser extends Parser {
        }
 
        public static Tree saveCodeInFileAndParseToTree(String code, String file) throws IOException, RecognitionException {
-             AutomationLangParser parser = new AutomationLangParser(Utils.saveCodeInFileAndGetTokenStream(code, file));
+             AutomatonLangParser parser = new AutomatonLangParser(Utils.saveCodeInFileAndGetTokenStream(code, file));
              parser.prog();
              return parser.getTree();
        }
@@ -757,7 +757,7 @@ public class AutomationLangParser extends Parser {
         Token f2=null;
         Token STRING3=null;
         Token ID4=null;
-        AutomationLangParser.opt_position_return opt_position5 =null;
+        AutomatonLangParser.opt_position_return opt_position5 =null;
 
 
         ArrayList<String> flags = new ArrayList<String>();
@@ -889,8 +889,8 @@ public class AutomationLangParser extends Parser {
 
     // $ANTLR start "opt_position"
     // C:\\Users\\Johannes\\Code\\Automation\\src\\automation\\lang\\AutomationLang.g:138:1: opt_position returns [double x, double y] : ( '\\[' xv= coord ( ',' yv= coord )? ']' )? ;
-    public final AutomationLangParser.opt_position_return opt_position() throws RecognitionException {
-        AutomationLangParser.opt_position_return retval = new AutomationLangParser.opt_position_return();
+    public final AutomatonLangParser.opt_position_return opt_position() throws RecognitionException {
+        AutomatonLangParser.opt_position_return retval = new AutomatonLangParser.opt_position_return();
         retval.start = input.LT(1);
 
 
@@ -1048,7 +1048,7 @@ public class AutomationLangParser extends Parser {
     // C:\\Users\\Johannes\\Code\\Automation\\src\\automation\\lang\\AutomationLang.g:149:1: var_def : ID '=' word_outputs ;
     public final void var_def() throws RecognitionException {
         Token ID8=null;
-        AutomationLangParser.word_outputs_return word_outputs9 =null;
+        AutomatonLangParser.word_outputs_return word_outputs9 =null;
 
 
         in_var_def = true;
@@ -1165,7 +1165,7 @@ public class AutomationLangParser extends Parser {
     public final void transition() throws RecognitionException {
         Token from=null;
         Token to=null;
-        AutomationLangParser.word_outputs_return w =null;
+        AutomatonLangParser.word_outputs_return w =null;
 
 
         boolean reverse = false; String to_str = "";
@@ -1334,14 +1334,14 @@ public class AutomationLangParser extends Parser {
 
     // $ANTLR start "word_outputs"
     // C:\\Users\\Johannes\\Code\\Automation\\src\\automation\\lang\\AutomationLang.g:184:1: word_outputs returns [ArrayList<String[]> list] : ( word_output | '\\(' w= word_outputs ( ',' t= word_outputs )* '\\)' );
-    public final AutomationLangParser.word_outputs_return word_outputs() throws RecognitionException {
-        AutomationLangParser.word_outputs_return retval = new AutomationLangParser.word_outputs_return();
+    public final AutomatonLangParser.word_outputs_return word_outputs() throws RecognitionException {
+        AutomatonLangParser.word_outputs_return retval = new AutomatonLangParser.word_outputs_return();
         retval.start = input.LT(1);
 
 
-        AutomationLangParser.word_outputs_return w =null;
+        AutomatonLangParser.word_outputs_return w =null;
 
-        AutomationLangParser.word_outputs_return t =null;
+        AutomatonLangParser.word_outputs_return t =null;
 
         ArrayList<String[]> word_output12 =null;
 

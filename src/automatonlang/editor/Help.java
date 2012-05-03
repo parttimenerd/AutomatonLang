@@ -1,4 +1,4 @@
-package automation.lang.editor;
+package automatonlang.editor;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -15,11 +15,11 @@ public class Help extends javax.swing.JFrame {
         initComponents();
         try {
            String app = getLocale().getLanguage() == "de" ? "_de" : "_en";
-            textpane.setPage(getClass().getResource("/automation/lang/editor/resources/docs/hilfe" + app + ".html"));
-            textpane2.setPage(getClass().getResource("/automation/lang/editor/resources/docs/editorbedienung" + app + ".html"));
-            textpane3.setPage(getClass().getResource("/automation/lang/editor/resources/docs/beispiele" + app + ".html"));
-            textpane4.setPage(getClass().getResource("/automation/lang/editor/resources/docs/copyright" + app + ".html"));
-            textpane4.setPage(getClass().getResource("/automation/lang/editor/resources/docs/release_notes" + app + ".html"));
+            textpane.setPage(getClass().getResource("/automatonlang/editor/resources/docs/hilfe" + app + ".html"));
+            textpane2.setPage(getClass().getResource("/automatonlang/editor/resources/docs/editorbedienung" + app + ".html"));
+            textpane3.setPage(getClass().getResource("/automatonlang/editor/resources/docs/beispiele" + app + ".html"));
+            textpane4.setPage(getClass().getResource("/automatonlang/editor/resources/docs/copyright" + app + ".html"));
+            textpane5.setPage(getClass().getResource("/automatonlang/editor/resources/docs/release_notes" + app + ".html"));
         } catch (IOException ex) {
             Logger.getLogger(Help.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,7 +47,8 @@ public class Help extends javax.swing.JFrame {
         textpane5 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Hilfe");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization"); // NOI18N
+        setTitle(bundle.getString("HILFE")); // NOI18N
         setAlwaysOnTop(true);
 
         scroll_pane.setAutoscrolls(true);
@@ -63,28 +64,30 @@ public class Help extends javax.swing.JFrame {
         textpane2.setEditable(false);
         jScrollPane1.setViewportView(textpane2);
 
-        tabbedpane.addTab("Editorbedienung", jScrollPane1);
+        tabbedpane.addTab(bundle.getString("EDITORBEDIENUNG"), jScrollPane1); // NOI18N
 
         textpane3.setEditable(false);
         jScrollPane2.setViewportView(textpane3);
 
-        tabbedpane.addTab("Beispiele", jScrollPane2);
+        tabbedpane.addTab(bundle.getString("BEISPIELE"), jScrollPane2); // NOI18N
 
         textpane4.setEditable(false);
         jScrollPane3.setViewportView(textpane4);
 
-        tabbedpane.addTab("Version und Copyright", jScrollPane3);
+        tabbedpane.addTab(bundle.getString("COPYRIGHT"), jScrollPane3); // NOI18N
 
         textpane5.setEditable(false);
         jScrollPane4.setViewportView(textpane5);
 
-        tabbedpane.addTab("Version und Copyright", jScrollPane4);
+        tabbedpane.addTab(bundle.getString("RELEASE NOTES"), jScrollPane4); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedpane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tabbedpane, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

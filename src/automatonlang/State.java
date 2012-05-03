@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package automation.lang;
+package automatonlang;
 
-import automation.lang.Tree.TestReturn;
+import automatonlang.Tree.TestReturn;
 import java.util.ArrayList;
 
 /**

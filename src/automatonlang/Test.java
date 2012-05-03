@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package automation.lang;
+package automatonlang;
 
 /**
  *
@@ -33,8 +33,6 @@ public class Test extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jToolBar1.setRollover(true);
-        jToolBar1.setMaximumSize(null);
-        jToolBar1.setMinimumSize(null);
         jToolBar1.setName("");
 
         jTabbedPane2.setMinimumSize(new java.awt.Dimension(100, 100));

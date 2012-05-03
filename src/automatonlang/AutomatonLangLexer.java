@@ -1,6 +1,6 @@
 // $ANTLR 3.4 C:\\Users\\Johannes\\Code\\Automation\\src\\automation\\lang\\AutomationLang.g 2012-04-29 18:53:35
 
-package automation.lang;
+package automatonlang;
 
 
 import org.antlr.runtime.*;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked"})
-public class AutomationLangLexer extends Lexer {
+public class AutomatonLangLexer extends Lexer {
     public static final int EOF=-1;
     public static final int T__17=17;
     public static final int T__18=18;
@@ -55,11 +55,11 @@ public class AutomationLangLexer extends Lexer {
         return new Lexer[] {};
     }
 
-    public AutomationLangLexer() {} 
-    public AutomationLangLexer(CharStream input) {
+    public AutomatonLangLexer() {} 
+    public AutomatonLangLexer(CharStream input) {
         this(input, new RecognizerSharedState());
     }
-    public AutomationLangLexer(CharStream input, RecognizerSharedState state) {
+    public AutomatonLangLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
     }
     public String getGrammarFileName() { return "C:\\Users\\Johannes\\Code\\Automation\\src\\automation\\lang\\AutomationLang.g"; }

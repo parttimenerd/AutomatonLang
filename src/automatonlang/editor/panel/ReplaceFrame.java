@@ -1,4 +1,4 @@
-package automation.lang.editor.panel;
+package automatonlang.editor.panel;
 
 /**
  * Klasse, die als GUI für die Ersetzenmethode dient
@@ -110,18 +110,19 @@ public class ReplaceFrame extends javax.swing.JFrame {
         ersetzen_button = new javax.swing.JButton();
         ersetzungstext_feld = new javax.swing.JTextField();
 
-        setTitle("Ersetzen");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization"); // NOI18N
+        setTitle(bundle.getString("ERSETZEN")); // NOI18N
         setAlwaysOnTop(true);
         setResizable(false);
 
-        suchbegriff_feld.setToolTipText("Zu ersetzender String");
+        suchbegriff_feld.setToolTipText(bundle.getString("ZU ERSETZENDER STRING")); // NOI18N
         suchbegriff_feld.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 suchbegriff_feldKeyReleased(evt);
             }
         });
 
-        ersetzen_button.setText("Ersetzen");
+        ersetzen_button.setText(bundle.getString("ERSETZEN")); // NOI18N
         ersetzen_button.setFocusCycleRoot(true);
         ersetzen_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +130,7 @@ public class ReplaceFrame extends javax.swing.JFrame {
             }
         });
 
-        ersetzungstext_feld.setToolTipText("String mit welchem der nebenstehende ersetzt wird");
+        ersetzungstext_feld.setToolTipText(bundle.getString("STRING MIT WELCHEM DER NEBENSTEHENDE ERSETZT WIRD")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,7 +159,7 @@ public class ReplaceFrame extends javax.swing.JFrame {
 }//GEN-LAST:event_ersetzen_buttonActionPerformed
 
     private void suchbegriff_feldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suchbegriff_feldKeyReleased
-        if (suchbegriff_feld.getText().matches("(Suchbegriff)+")) {
+        if (suchbegriff_feld.getText().matches(java.util.ResourceBundle.getBundle("automation/lang/editor/resources/localization").getString("(SUCHBEGRIFF)+"))) {
             suchbegriff_feld.setText(evt.getKeyChar() + "");
         }
         suchen_listener.actionPerformed(new SuchenEvent(suchbegriff_feld.getText()));

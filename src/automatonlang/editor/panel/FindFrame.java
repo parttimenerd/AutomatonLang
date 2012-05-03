@@ -1,4 +1,4 @@
-package automation.lang.editor.panel;
+package automatonlang.editor.panel;
 
 /**
  * Klasse die als GUI für die Suchmaske fungiert
@@ -24,7 +24,8 @@ public class FindFrame extends javax.swing.JFrame {
         suchbegriff_feld = new javax.swing.JTextField();
         next_button = new javax.swing.JButton();
 
-        setTitle("Suchen");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization"); // NOI18N
+        setTitle(bundle.getString("SUCHEN")); // NOI18N
         setAlwaysOnTop(true);
         setResizable(false);
 
@@ -66,7 +67,7 @@ public class FindFrame extends javax.swing.JFrame {
 }//GEN-LAST:event_next_buttonActionPerformed
 
     private void suchbegriff_feldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suchbegriff_feldKeyReleased
-        if (suchbegriff_feld.getText().matches("(Suchbegriff)+"))
+        if (suchbegriff_feld.getText().matches(java.util.ResourceBundle.getBundle("automation/lang/editor/resources/localization").getString("(SUCHBEGRIFF)+")))
             suchbegriff_feld.setText(evt.getKeyChar() + "");
         suchen_listener.actionPerformed(new SuchenEvent(suchbegriff_feld.getText()));
     }//GEN-LAST:event_suchbegriff_feldKeyReleased

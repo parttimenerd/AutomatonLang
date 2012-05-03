@@ -1,8 +1,8 @@
-package automation.lang.editor.panel;
+package automatonlang.editor.panel;
 
-import automation.lang.AutomationLangParser;
-import automation.lang.Tree;
-import automation.lang.editor.Editor;
+import automatonlang.AutomatonLangParser;
+import automatonlang.Tree;
+import automatonlang.editor.Editor;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -32,7 +32,7 @@ public class Panel extends javax.swing.JPanel {
 
    private File code_file;
    private int lastfindpos = 0;
-   private String lastfindtext = "";
+   private String lastfindtext = ""; //NOI18N
    private ArrayList<String> actionlist = new ArrayList<String>();
    private final int MAX_ACTIONS = 30;
    private int backstepcount = 0;
@@ -410,7 +410,7 @@ public class Panel extends javax.swing.JPanel {
     */
    public String getTitle() {
       if (code_file == null) {
-         return "Unbekannt";
+         return java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("UNBEKANNT");
       } else {
          return code_file.getName();
       }
@@ -937,7 +937,7 @@ public class Panel extends javax.swing.JPanel {
          if (!"".equals(str)) {
             list.add(new TodoListItem(str.trim(), pos, this));
          }
-         pos = text.indexOf("TODO", pos + 1);
+         pos = text.indexOf(java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("TODO"), pos + 1);
       }
       return list;
    }
@@ -950,7 +950,7 @@ public class Panel extends javax.swing.JPanel {
          String file = code_file.getAbsolutePath();
          Document doc = this.getCodePane().getDocument();
          long time = System.currentTimeMillis();
-         tree = AutomationLangParser.saveCodeInFileAndParseToTree(doc.getText(0, doc.getLength()), file);
+         tree = AutomatonLangParser.saveCodeInFileAndParseToTree(doc.getText(0, doc.getLength()), file);
          System.out.println("Interpret code (" + (System.currentTimeMillis() - time) + "ms)...");
          File f = new File(file + ".jff");
          if (f.exists()) {
@@ -974,10 +974,10 @@ public class Panel extends javax.swing.JPanel {
       try {
          System.setErr(new PrintStream(System.out));
          errors.clear();
-         File file = File.createTempFile("automationlang", ".al");
+         File file = File.createTempFile("automatonlang", ".al");
          Document doc = this.getCodePane().getDocument();
          long time = System.currentTimeMillis();
-         tree = AutomationLangParser.saveCodeInFileAndParseToTree(doc.getText(0, doc.getLength()), file.getAbsolutePath());
+         tree = AutomatonLangParser.saveCodeInFileAndParseToTree(doc.getText(0, doc.getLength()), file.getAbsolutePath());
          System.out.println("Interpret code (" + (System.currentTimeMillis() - time) + "ms)...");
          file.delete();
       } catch (IOException ex) {

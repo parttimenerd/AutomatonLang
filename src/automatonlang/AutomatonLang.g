@@ -1,7 +1,7 @@
-grammar AutomationLang;
+grammar AutomatonLang;
 
 @parser::header {
-package automation.lang;
+package automatonlang;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.io.FileWriter;
@@ -10,7 +10,7 @@ import java.util.Collections;
 }
 
 @lexer::header {
-package automation.lang;
+package automatonlang;
 }
 
 @members {

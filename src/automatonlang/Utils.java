@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package automation.lang;
+package automatonlang;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -51,7 +51,7 @@ public class Utils {
       writer.write(code);
       writer.close();
       CharStream cs = new ANTLRFileStream(file);
-      AutomationLangLexer lexer = new AutomationLangLexer(cs);
+      AutomatonLangLexer lexer = new AutomatonLangLexer(cs);
       CommonTokenStream tokens = new CommonTokenStream();
       tokens.setTokenSource(lexer);
       return tokens;

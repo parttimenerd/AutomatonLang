@@ -8,7 +8,7 @@
           <ComponentRef name="preview_scrollpane"/>
         </Property>
         <Property name="fileFilter" type="javax.swing.filechooser.FileFilter" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.filechooser.FileFilter() {&#xa;&#xa;            @Override&#xa;            public boolean accept(File f) {&#xa;                return f.getName().toLowerCase().endsWith(FILE_ENDING);&#xa;            }&#xa;&#xa;            @Override&#xa;            public String getDescription() {&#xa;                return &quot;AutomationLang (= DSL f&#xfc;r einfache Automaten) Dateien&quot;;&#xa;            }&#xa;        }" type="code"/>
+          <Connection code="new javax.swing.filechooser.FileFilter() {&#xa;&#xa;            @Override&#xa;            public boolean accept(File f) {&#xa;                return f.getName().toLowerCase().endsWith(FILE_ENDING);&#xa;            }&#xa;&#xa;            @Override&#xa;            public String getDescription() {&#xa;                return java.util.ResourceBundle.getBundle(&quot;automatonlang/editor/resources/localizations/localization&quot;).getString(&quot;AUTOMATIONLANG DATEIEN&quot;);&#xa;            }&#xa;        }" type="code"/>
         </Property>
         <Property name="autoscrolls" type="boolean" value="true"/>
         <Property name="dragEnabled" type="boolean" value="true"/>
@@ -19,7 +19,9 @@
     </Component>
     <Component class="javax.swing.JMenuItem" name="font_&#xe4;ndern_item">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Schriftart &#xe4;ndern..."/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SCHRIFTART &#xc4;NDERN..." replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="font_&#xe4;ndern_itemActionPerformed"/>
@@ -53,7 +55,9 @@
     </Component>
     <Container class="javax.swing.JMenu" name="beispiele_menu">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Beispiele"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="BEISPIELE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -69,7 +73,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="script_menu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Script"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="FILE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="ausf&#xfc;hren_item">
@@ -78,9 +84,11 @@
                   <KeyStroke key="Shift+Ctrl+A"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Ausf&#xfc;hren.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Ausf&#xfc;hren.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ausf&#xfc;hren"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="AUSF&#xdc;HREN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ausf&#xfc;hren_itemActionPerformed"/>
@@ -92,9 +100,11 @@
                   <KeyStroke key="Ctrl+N"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Neu.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Neu.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Neu"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="NEU" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="neues_script_itemActionPerformed"/>
@@ -106,9 +116,11 @@
                   <KeyStroke key="Ctrl+O"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/&#xd6;ffnen.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/&#xd6;ffnen.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&#xd6;ffnen..."/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="&#xd6;FFNEN..." replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xf6;ffnen_itemActionPerformed"/>
@@ -120,9 +132,11 @@
                   <KeyStroke key="Ctrl+S"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Speichern.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Speichern.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Speichern"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SPEICHERN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="speichern_itemActionPerformed"/>
@@ -133,7 +147,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+Ctrl+S"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Speichern unter..."/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SPEICHERN UNTER..." replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="speichern_unter_itemActionPerformed"/>
@@ -143,7 +159,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="bearbeiten_menu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bearbeiten"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="BEARBEITEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bearbeiten_menuActionPerformed"/>
@@ -155,11 +173,13 @@
                   <KeyStroke key="Ctrl+Z"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Undo.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Undo.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="R&#xfc;ckg&#xe4;ngig"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="R&#xdc;CKG&#xc4;NGIG" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
                 <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Redo_disabled.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Redo_disabled.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -172,14 +192,16 @@
                   <KeyStroke key="Ctrl+Y"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Redo.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Redo.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Wiederholen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="WIEDERHOLEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
                 <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Redo_disabled.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Redo_disabled.png"/>
                 </Property>
                 <Property name="disabledSelectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Redo_disabled.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Redo_disabled.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -193,7 +215,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+A"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Alles markieren"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="ALLES MARKIEREN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alles_markieren_itemActionPerformed"/>
@@ -204,7 +228,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+X"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ausschneiden"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="AUSSCHNEIDEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="auschneiden_itemActionPerformed"/>
@@ -215,7 +241,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Kopieren"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="KOPIEREN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kopieren_itemActionPerformed"/>
@@ -226,7 +254,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="DELETE"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Entfernen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="ENTFERNEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entfernen_itemActionPerformed"/>
@@ -237,7 +267,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+V"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Einf&#xfc;gen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="EINF&#xdc;GEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="einf&#xfc;gen_itemActionPerformed"/>
@@ -251,9 +283,11 @@
                   <KeyStroke key="Shift+Ctrl+U"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/tab_nach_links.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/tab_nach_links.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ausr&#xfc;cken"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="AUSR&#xdc;CKEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tab_nach_linksActionPerformed"/>
@@ -265,9 +299,11 @@
                   <KeyStroke key="Shift+Ctrl+I"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/tab_nach_rechts.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/tab_nach_rechts.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Einr&#xfc;cken"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="EINR&#xdc;CKEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tab_nach_rechts_itemActionPerformed"/>
@@ -281,9 +317,11 @@
                   <KeyStroke key="Ctrl+F"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Suchen.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Suchen.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Suchen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SUCHEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="suchen_itemActionPerformed"/>
@@ -294,7 +332,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+Ctrl+F"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Weitersuchen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="WEITERSUCHEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weitersuchen_itemActionPerformed"/>
@@ -305,7 +345,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+R"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ersetzen..."/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="ERSETZEN..." replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ersetzen_itemActionPerformed"/>
@@ -315,7 +357,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="editor_menu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Editor"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="EDITOR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="aktuellen_tab_schlie&#xdf;en_item">
@@ -323,7 +367,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+W"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Aktuellen Tab l&#xf6;schen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="AKTUELLEN TAB L&#xd6;SCHEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aktuellen_tab_schlie&#xdf;en_itemActionPerformed"/>
@@ -334,7 +380,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+Ctrl+C"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Text im Ausgabefenster l&#xf6;schen"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="TEXT IM AUSGABEFENSTER L&#xd6;SCHEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ausgabefenster_kl&#xe4;ren_itemActionPerformed"/>
@@ -345,7 +393,9 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+B"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Zeilen im Ausbaubefenster brechen?"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="ZEILEN IM AUSBAUBEFENSTER BRECHEN?" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zeilen_bruch_itemActionPerformed"/>
@@ -353,14 +403,18 @@
             </MenuItem>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="regelm&#xe4;&#xdf;ig_alle_speichern_item">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Regelm&#xe4;&#xdf;ig alle Dateien speichern?"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="REGELM&#xc4;SSIG ALLE DATEIEN SPEICHERN?" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="hilfe_menu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Hilfe"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="HILFE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="sprachhilfe_item">
@@ -369,9 +423,11 @@
                   <KeyStroke key="F1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/automation/lang/editor/resources/Hilfe.png"/>
+                  <Image iconType="3" name="/automatonlang/editor/resources/Hilfe.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Hilfe..."/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="HILFE..." replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sprachhilfe_itemActionPerformed"/>
@@ -379,7 +435,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Version und Autor"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                  <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="VERSION UND AUTOR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
@@ -392,7 +450,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Editor"/>
+    <Property name="title" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="EDITOR" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menu_bar"/>
@@ -445,9 +505,11 @@
         <Component class="javax.swing.JButton" name="&#xf6;ffnen_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/&#xd6;ffnen.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/&#xd6;ffnen.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Script Datei &#xf6;ffnen"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SCRIPT DATEI &#xd6;FFNEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -460,9 +522,11 @@
         <Component class="javax.swing.JButton" name="ausf&#xfc;hren_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Ausf&#xfc;hren.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Ausf&#xfc;hren.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Script ausf&#xfc;hren"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SCRIPT AUSF&#xdc;HREN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -478,9 +542,11 @@
               <Color blue="f0" green="f0" id="Control" palette="2" red="f0" type="palette"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Neu.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Neu.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Neues Script erstellen"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="NEUES SCRIPT ERSTELLEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -493,9 +559,11 @@
         <Component class="javax.swing.JButton" name="speichern_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Speichern.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Speichern.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Script speichern"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SCRIPT SPEICHERN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -508,9 +576,11 @@
         <Component class="javax.swing.JButton" name="save_all_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Alle_speichern.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Alle_speichern.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Alle Scripte speichern"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="ALLE SCRIPTE SPEICHERN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -523,9 +593,11 @@
         <Component class="javax.swing.JButton" name="undo_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Undo.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Undo.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="R&#xfc;ckg&#xe4;ngig"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="R&#xdc;CKG&#xc4;NGIG" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -538,15 +610,17 @@
         <Component class="javax.swing.JButton" name="redo_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Redo.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Redo.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Wiederholen"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="WIEDERHOLEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Redo_disabled.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Redo_disabled.png"/>
             </Property>
             <Property name="disabledSelectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Redo_disabled.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Redo_disabled.png"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -559,9 +633,11 @@
         <Component class="javax.swing.JButton" name="suchen_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Suchen.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Suchen.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Suchen"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SUCHEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -574,9 +650,11 @@
         <Component class="javax.swing.JButton" name="tab_nach_rechts_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/tab_nach_rechts.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/tab_nach_rechts.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Einr&#xfc;cken"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="EINR&#xdc;CKEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -589,9 +667,11 @@
         <Component class="javax.swing.JButton" name="tab_nach_links_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/tab_nach_links.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/tab_nach_links.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Ausr&#xfc;cken"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="AUSR&#xdc;CKEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -604,9 +684,11 @@
         <Component class="javax.swing.JButton" name="hilfe_button">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/automation/lang/editor/resources/Hilfe.png"/>
+              <Image iconType="3" name="/automatonlang/editor/resources/Hilfe.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Hilfe"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="HILFE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -694,7 +776,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="script_open_button">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Script Datei &#xf6;ffnen..."/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="SCRIPT DATEI &#xd6;FFNEN..." replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="script_open_buttonActionPerformed"/>
@@ -702,7 +786,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="neues_script_button">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Neues Script..."/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="NEUES SCRIPT..." replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                       <ComponentRef name="script_open_button"/>
                     </Property>
@@ -717,7 +803,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Was m&#xf6;chten sie tun?"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="WAS M&#xd6;CHTEN SIE TUN?" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -744,8 +832,10 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Ausgabe">
-                    <Property name="tabTitle" type="java.lang.String" value="Ausgabe"/>
+                  <JTabbedPaneConstraints tabName="Output">
+                    <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="AUSGABE" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -767,7 +857,9 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Errors">
-                    <Property name="tabTitle" type="java.lang.String" value="Errors"/>
+                    <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="ERRORS" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -820,7 +912,9 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="TODO">
-                    <Property name="tabTitle" type="java.lang.String" value="TODO"/>
+                    <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="TODO" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -881,7 +975,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="autesten_ausdruck_box" pref="309" max="32767" attributes="0"/>
+                          <Component id="autesten_ausdruck_box" pref="321" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="autesten_button" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -905,8 +999,12 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="autesten_button">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Testen"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Automaten mit Ausdruck testen"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="TESTEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="AUTOMATEN MIT AUSDRUCK TESTEN" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="autesten_buttonActionPerformed"/>
@@ -944,7 +1042,9 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="JFLAP">
-                    <Property name="tabTitle" type="java.lang.String" value="JFLAP"/>
+                    <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="automatonlang/editor/resources/localizations/localization.properties" key="JFLAP" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>

@@ -1,9 +1,9 @@
-package automation.lang.editor;
+package automatonlang.editor;
 
-import automation.lang.Tree;
-import automation.lang.Tree.TestReturn;
-import automation.lang.editor.panel.Panel;
-import automation.lang.editor.panel.Panel.TodoListItem;
+import automatonlang.Tree;
+import automatonlang.Tree.TestReturn;
+import automatonlang.editor.panel.Panel;
+import automatonlang.editor.panel.Panel.TodoListItem;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Toolkit;
@@ -43,10 +43,7 @@ public class Editor extends javax.swing.JFrame {
     */
    public static Writer writer;
    private Timer timer;
-   private final String[] EXAMPLES = new String[]{
-      "Gerade_Zahlen.al"
-   };
-
+   
    /**
     * Creates new form Editor
     */
@@ -105,7 +102,6 @@ public class Editor extends javax.swing.JFrame {
          }
       }));
       ausgaben_fenster.setFont(new java.awt.Font("Monospaced", 0, 12));
-      loadExamples();
       timer = new Timer("Update errors and TODO-list");
       timer.schedule(new TimerTask() {
 
@@ -250,7 +246,7 @@ public class Editor extends javax.swing.JFrame {
 
             @Override
             public String getDescription() {
-                return "AutomationLang (= DSL für einfache Automaten) Dateien";
+                return java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("AUTOMATIONLANG DATEIEN");
             }
         });
         file_chooser.setAutoscrolls(true);
@@ -261,7 +257,8 @@ public class Editor extends javax.swing.JFrame {
             }
         });
 
-        font_ändern_item.setText("Schriftart ändern...");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization"); // NOI18N
+        font_ändern_item.setText(bundle.getString("SCHRIFTART ÄNDERN...")); // NOI18N
         font_ändern_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 font_ändern_itemActionPerformed(evt);
@@ -278,12 +275,12 @@ public class Editor extends javax.swing.JFrame {
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
-        beispiele_menu.setText("Beispiele");
+        beispiele_menu.setText(bundle.getString("BEISPIELE")); // NOI18N
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Editor");
+        setTitle(bundle.getString("EDITOR")); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -294,8 +291,8 @@ public class Editor extends javax.swing.JFrame {
         toolbar.setRollover(true);
         toolbar.setPreferredSize(new java.awt.Dimension(229, 29));
 
-        öffnen_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Öffnen.png"))); // NOI18N
-        öffnen_button.setToolTipText("Script Datei öffnen");
+        öffnen_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Öffnen.png"))); // NOI18N
+        öffnen_button.setToolTipText(bundle.getString("SCRIPT DATEI ÖFFNEN")); // NOI18N
         öffnen_button.setBorderPainted(false);
         öffnen_button.setFocusable(false);
         öffnen_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -307,8 +304,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(öffnen_button);
 
-        ausführen_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Ausführen.png"))); // NOI18N
-        ausführen_button.setToolTipText("Script ausführen");
+        ausführen_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Ausführen.png"))); // NOI18N
+        ausführen_button.setToolTipText(bundle.getString("SCRIPT AUSFÜHREN")); // NOI18N
         ausführen_button.setBorderPainted(false);
         ausführen_button.setFocusable(false);
         ausführen_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -321,8 +318,8 @@ public class Editor extends javax.swing.JFrame {
         toolbar.add(ausführen_button);
 
         neu_button.setForeground(java.awt.SystemColor.control);
-        neu_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Neu.png"))); // NOI18N
-        neu_button.setToolTipText("Neues Script erstellen");
+        neu_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Neu.png"))); // NOI18N
+        neu_button.setToolTipText(bundle.getString("NEUES SCRIPT ERSTELLEN")); // NOI18N
         neu_button.setBorderPainted(false);
         neu_button.setFocusable(false);
         neu_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -334,8 +331,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(neu_button);
 
-        speichern_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Speichern.png"))); // NOI18N
-        speichern_button.setToolTipText("Script speichern");
+        speichern_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Speichern.png"))); // NOI18N
+        speichern_button.setToolTipText(bundle.getString("SCRIPT SPEICHERN")); // NOI18N
         speichern_button.setBorderPainted(false);
         speichern_button.setFocusable(false);
         speichern_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -347,8 +344,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(speichern_button);
 
-        save_all_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Alle_speichern.png"))); // NOI18N
-        save_all_button.setToolTipText("Alle Scripte speichern");
+        save_all_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Alle_speichern.png"))); // NOI18N
+        save_all_button.setToolTipText(bundle.getString("ALLE SCRIPTE SPEICHERN")); // NOI18N
         save_all_button.setBorderPainted(false);
         save_all_button.setFocusable(false);
         save_all_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -360,8 +357,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(save_all_button);
 
-        undo_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Undo.png"))); // NOI18N
-        undo_button.setToolTipText("Rückgängig");
+        undo_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Undo.png"))); // NOI18N
+        undo_button.setToolTipText(bundle.getString("RÜCKGÄNGIG")); // NOI18N
         undo_button.setBorderPainted(false);
         undo_button.setFocusable(false);
         undo_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -373,11 +370,11 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(undo_button);
 
-        redo_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Redo.png"))); // NOI18N
-        redo_button.setToolTipText("Wiederholen");
+        redo_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Redo.png"))); // NOI18N
+        redo_button.setToolTipText(bundle.getString("WIEDERHOLEN")); // NOI18N
         redo_button.setBorderPainted(false);
-        redo_button.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Redo_disabled.png"))); // NOI18N
-        redo_button.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Redo_disabled.png"))); // NOI18N
+        redo_button.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Redo_disabled.png"))); // NOI18N
+        redo_button.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Redo_disabled.png"))); // NOI18N
         redo_button.setFocusable(false);
         redo_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         redo_button.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -388,8 +385,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(redo_button);
 
-        suchen_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Suchen.png"))); // NOI18N
-        suchen_button.setToolTipText("Suchen");
+        suchen_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Suchen.png"))); // NOI18N
+        suchen_button.setToolTipText(bundle.getString("SUCHEN")); // NOI18N
         suchen_button.setBorderPainted(false);
         suchen_button.setFocusable(false);
         suchen_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -401,8 +398,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(suchen_button);
 
-        tab_nach_rechts_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/tab_nach_rechts.png"))); // NOI18N
-        tab_nach_rechts_button.setToolTipText("Einrücken");
+        tab_nach_rechts_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/tab_nach_rechts.png"))); // NOI18N
+        tab_nach_rechts_button.setToolTipText(bundle.getString("EINRÜCKEN")); // NOI18N
         tab_nach_rechts_button.setBorderPainted(false);
         tab_nach_rechts_button.setFocusable(false);
         tab_nach_rechts_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -414,8 +411,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(tab_nach_rechts_button);
 
-        tab_nach_links_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/tab_nach_links.png"))); // NOI18N
-        tab_nach_links_button.setToolTipText("Ausrücken");
+        tab_nach_links_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/tab_nach_links.png"))); // NOI18N
+        tab_nach_links_button.setToolTipText(bundle.getString("AUSRÜCKEN")); // NOI18N
         tab_nach_links_button.setBorderPainted(false);
         tab_nach_links_button.setFocusable(false);
         tab_nach_links_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -427,8 +424,8 @@ public class Editor extends javax.swing.JFrame {
         });
         toolbar.add(tab_nach_links_button);
 
-        hilfe_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Hilfe.png"))); // NOI18N
-        hilfe_button.setToolTipText("Hilfe");
+        hilfe_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Hilfe.png"))); // NOI18N
+        hilfe_button.setToolTipText(bundle.getString("HILFE")); // NOI18N
         hilfe_button.setBorderPainted(false);
         hilfe_button.setFocusable(false);
         hilfe_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -447,14 +444,14 @@ public class Editor extends javax.swing.JFrame {
 
         willkommen_panel.setPreferredSize(new java.awt.Dimension(350, 250));
 
-        script_open_button.setText("Script Datei öffnen...");
+        script_open_button.setText(bundle.getString("SCRIPT DATEI ÖFFNEN...")); // NOI18N
         script_open_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 script_open_buttonActionPerformed(evt);
             }
         });
 
-        neues_script_button.setText("Neues Script...");
+        neues_script_button.setText(bundle.getString("NEUES SCRIPT...")); // NOI18N
         neues_script_button.setNextFocusableComponent(script_open_button);
         neues_script_button.setOpaque(false);
         neues_script_button.addActionListener(new java.awt.event.ActionListener() {
@@ -464,7 +461,7 @@ public class Editor extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Was möchten sie tun?");
+        jLabel1.setText(bundle.getString("WAS MÖCHTEN SIE TUN?")); // NOI18N
 
         javax.swing.GroupLayout willkommen_panelLayout = new javax.swing.GroupLayout(willkommen_panel);
         willkommen_panel.setLayout(willkommen_panelLayout);
@@ -505,7 +502,7 @@ public class Editor extends javax.swing.JFrame {
         ausgaben_fenster.setRows(5);
         jScrollPane1.setViewportView(ausgaben_fenster);
 
-        tabbed_pane_unten.addTab("Ausgabe", jScrollPane1);
+        tabbed_pane_unten.addTab(bundle.getString("AUSGABE"), jScrollPane1); // NOI18N
 
         errors_table.setAutoCreateRowSorter(true);
         errors_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -539,7 +536,7 @@ public class Editor extends javax.swing.JFrame {
         errors_scrollpane.setViewportView(errors_table);
         errors_table.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        tabbed_pane_unten.addTab("Errors", errors_scrollpane);
+        tabbed_pane_unten.addTab(bundle.getString("ERRORS"), errors_scrollpane); // NOI18N
 
         todo_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -572,7 +569,7 @@ public class Editor extends javax.swing.JFrame {
         jScrollPane2.setViewportView(todo_table);
         todo_table.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        tabbed_pane_unten.addTab("TODO", jScrollPane2);
+        tabbed_pane_unten.addTab(bundle.getString("TODO"), jScrollPane2); // NOI18N
 
         automat_testen_panel.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -580,8 +577,8 @@ public class Editor extends javax.swing.JFrame {
             }
         });
 
-        autesten_button.setText("Testen");
-        autesten_button.setToolTipText("Automaten mit Ausdruck testen");
+        autesten_button.setText(bundle.getString("TESTEN")); // NOI18N
+        autesten_button.setToolTipText(bundle.getString("AUTOMATEN MIT AUSDRUCK TESTEN")); // NOI18N
         autesten_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 autesten_buttonActionPerformed(evt);
@@ -599,7 +596,7 @@ public class Editor extends javax.swing.JFrame {
         automat_testen_panelLayout.setHorizontalGroup(
             automat_testen_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(automat_testen_panelLayout.createSequentialGroup()
-                .addComponent(autesten_ausdruck_box, 0, 309, Short.MAX_VALUE)
+                .addComponent(autesten_ausdruck_box, 0, 321, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(autesten_button)
                 .addContainerGap())
@@ -622,15 +619,15 @@ public class Editor extends javax.swing.JFrame {
         jflap_testarea.setRows(5);
         jScrollPane4.setViewportView(jflap_testarea);
 
-        tabbed_pane_unten.addTab("JFLAP", jScrollPane4);
+        tabbed_pane_unten.addTab(bundle.getString("JFLAP"), jScrollPane4); // NOI18N
 
         jSplitPane1.setBottomComponent(tabbed_pane_unten);
 
-        script_menu.setText("Script");
+        script_menu.setText(bundle.getString("FILE")); // NOI18N
 
         ausführen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        ausführen_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Ausführen.png"))); // NOI18N
-        ausführen_item.setText("Ausführen");
+        ausführen_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Ausführen.png"))); // NOI18N
+        ausführen_item.setText(bundle.getString("AUSFÜHREN")); // NOI18N
         ausführen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ausführen_itemActionPerformed(evt);
@@ -639,8 +636,8 @@ public class Editor extends javax.swing.JFrame {
         script_menu.add(ausführen_item);
 
         neues_script_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        neues_script_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Neu.png"))); // NOI18N
-        neues_script_item.setText("Neu");
+        neues_script_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Neu.png"))); // NOI18N
+        neues_script_item.setText(bundle.getString("NEU")); // NOI18N
         neues_script_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 neues_script_itemActionPerformed(evt);
@@ -649,8 +646,8 @@ public class Editor extends javax.swing.JFrame {
         script_menu.add(neues_script_item);
 
         öffnen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        öffnen_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Öffnen.png"))); // NOI18N
-        öffnen_item.setText("Öffnen...");
+        öffnen_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Öffnen.png"))); // NOI18N
+        öffnen_item.setText(bundle.getString("ÖFFNEN...")); // NOI18N
         öffnen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 öffnen_itemActionPerformed(evt);
@@ -659,8 +656,8 @@ public class Editor extends javax.swing.JFrame {
         script_menu.add(öffnen_item);
 
         speichern_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        speichern_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Speichern.png"))); // NOI18N
-        speichern_item.setText("Speichern");
+        speichern_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Speichern.png"))); // NOI18N
+        speichern_item.setText(bundle.getString("SPEICHERN")); // NOI18N
         speichern_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 speichern_itemActionPerformed(evt);
@@ -669,7 +666,7 @@ public class Editor extends javax.swing.JFrame {
         script_menu.add(speichern_item);
 
         speichern_unter_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        speichern_unter_item.setText("Speichern unter...");
+        speichern_unter_item.setText(bundle.getString("SPEICHERN UNTER...")); // NOI18N
         speichern_unter_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 speichern_unter_itemActionPerformed(evt);
@@ -679,7 +676,7 @@ public class Editor extends javax.swing.JFrame {
 
         menu_bar.add(script_menu);
 
-        bearbeiten_menu.setText("Bearbeiten");
+        bearbeiten_menu.setText(bundle.getString("BEARBEITEN")); // NOI18N
         bearbeiten_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bearbeiten_menuActionPerformed(evt);
@@ -687,9 +684,9 @@ public class Editor extends javax.swing.JFrame {
         });
 
         undo_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        undo_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Undo.png"))); // NOI18N
-        undo_item.setText("Rückgängig");
-        undo_item.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Redo_disabled.png"))); // NOI18N
+        undo_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Undo.png"))); // NOI18N
+        undo_item.setText(bundle.getString("RÜCKGÄNGIG")); // NOI18N
+        undo_item.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Redo_disabled.png"))); // NOI18N
         undo_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 undo_itemActionPerformed(evt);
@@ -698,10 +695,10 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(undo_item);
 
         redo_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
-        redo_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Redo.png"))); // NOI18N
-        redo_item.setText("Wiederholen");
-        redo_item.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Redo_disabled.png"))); // NOI18N
-        redo_item.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Redo_disabled.png"))); // NOI18N
+        redo_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Redo.png"))); // NOI18N
+        redo_item.setText(bundle.getString("WIEDERHOLEN")); // NOI18N
+        redo_item.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Redo_disabled.png"))); // NOI18N
+        redo_item.setDisabledSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Redo_disabled.png"))); // NOI18N
         redo_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 redo_itemActionPerformed(evt);
@@ -711,7 +708,7 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(jSeparator1);
 
         alles_markieren_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        alles_markieren_item.setText("Alles markieren");
+        alles_markieren_item.setText(bundle.getString("ALLES MARKIEREN")); // NOI18N
         alles_markieren_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alles_markieren_itemActionPerformed(evt);
@@ -720,7 +717,7 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(alles_markieren_item);
 
         auschneiden_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        auschneiden_item.setText("Ausschneiden");
+        auschneiden_item.setText(bundle.getString("AUSSCHNEIDEN")); // NOI18N
         auschneiden_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 auschneiden_itemActionPerformed(evt);
@@ -729,7 +726,7 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(auschneiden_item);
 
         kopieren_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        kopieren_item.setText("Kopieren");
+        kopieren_item.setText(bundle.getString("KOPIEREN")); // NOI18N
         kopieren_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kopieren_itemActionPerformed(evt);
@@ -738,7 +735,7 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(kopieren_item);
 
         entfernen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
-        entfernen_item.setText("Entfernen");
+        entfernen_item.setText(bundle.getString("ENTFERNEN")); // NOI18N
         entfernen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entfernen_itemActionPerformed(evt);
@@ -747,7 +744,7 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(entfernen_item);
 
         einfügen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        einfügen_item.setText("Einfügen");
+        einfügen_item.setText(bundle.getString("EINFÜGEN")); // NOI18N
         einfügen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 einfügen_itemActionPerformed(evt);
@@ -757,8 +754,8 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(jSeparator2);
 
         tab_nach_links.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        tab_nach_links.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/tab_nach_links.png"))); // NOI18N
-        tab_nach_links.setText("Ausrücken");
+        tab_nach_links.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/tab_nach_links.png"))); // NOI18N
+        tab_nach_links.setText(bundle.getString("AUSRÜCKEN")); // NOI18N
         tab_nach_links.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tab_nach_linksActionPerformed(evt);
@@ -767,8 +764,8 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(tab_nach_links);
 
         tab_nach_rechts_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        tab_nach_rechts_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/tab_nach_rechts.png"))); // NOI18N
-        tab_nach_rechts_item.setText("Einrücken");
+        tab_nach_rechts_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/tab_nach_rechts.png"))); // NOI18N
+        tab_nach_rechts_item.setText(bundle.getString("EINRÜCKEN")); // NOI18N
         tab_nach_rechts_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tab_nach_rechts_itemActionPerformed(evt);
@@ -778,8 +775,8 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(jSeparator3);
 
         suchen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-        suchen_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Suchen.png"))); // NOI18N
-        suchen_item.setText("Suchen");
+        suchen_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Suchen.png"))); // NOI18N
+        suchen_item.setText(bundle.getString("SUCHEN")); // NOI18N
         suchen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 suchen_itemActionPerformed(evt);
@@ -788,7 +785,7 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(suchen_item);
 
         weitersuchen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        weitersuchen_item.setText("Weitersuchen");
+        weitersuchen_item.setText(bundle.getString("WEITERSUCHEN")); // NOI18N
         weitersuchen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 weitersuchen_itemActionPerformed(evt);
@@ -797,7 +794,7 @@ public class Editor extends javax.swing.JFrame {
         bearbeiten_menu.add(weitersuchen_item);
 
         ersetzen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        ersetzen_item.setText("Ersetzen...");
+        ersetzen_item.setText(bundle.getString("ERSETZEN...")); // NOI18N
         ersetzen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ersetzen_itemActionPerformed(evt);
@@ -807,10 +804,10 @@ public class Editor extends javax.swing.JFrame {
 
         menu_bar.add(bearbeiten_menu);
 
-        editor_menu.setText("Editor");
+        editor_menu.setText(bundle.getString("EDITOR")); // NOI18N
 
         aktuellen_tab_schließen_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
-        aktuellen_tab_schließen_item.setText("Aktuellen Tab löschen");
+        aktuellen_tab_schließen_item.setText(bundle.getString("AKTUELLEN TAB LÖSCHEN")); // NOI18N
         aktuellen_tab_schließen_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aktuellen_tab_schließen_itemActionPerformed(evt);
@@ -819,7 +816,7 @@ public class Editor extends javax.swing.JFrame {
         editor_menu.add(aktuellen_tab_schließen_item);
 
         ausgabefenster_klären_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        ausgabefenster_klären_item.setText("Text im Ausgabefenster löschen");
+        ausgabefenster_klären_item.setText(bundle.getString("TEXT IM AUSGABEFENSTER LÖSCHEN")); // NOI18N
         ausgabefenster_klären_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ausgabefenster_klären_itemActionPerformed(evt);
@@ -828,7 +825,7 @@ public class Editor extends javax.swing.JFrame {
         editor_menu.add(ausgabefenster_klären_item);
 
         zeilen_bruch_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        zeilen_bruch_item.setText("Zeilen im Ausbaubefenster brechen?");
+        zeilen_bruch_item.setText(bundle.getString("ZEILEN IM AUSBAUBEFENSTER BRECHEN?")); // NOI18N
         zeilen_bruch_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 zeilen_bruch_itemActionPerformed(evt);
@@ -836,16 +833,16 @@ public class Editor extends javax.swing.JFrame {
         });
         editor_menu.add(zeilen_bruch_item);
 
-        regelmäßig_alle_speichern_item.setText("Regelmäßig alle Dateien speichern?");
+        regelmäßig_alle_speichern_item.setText(bundle.getString("REGELMÄSSIG ALLE DATEIEN SPEICHERN?")); // NOI18N
         editor_menu.add(regelmäßig_alle_speichern_item);
 
         menu_bar.add(editor_menu);
 
-        hilfe_menu.setText("Hilfe");
+        hilfe_menu.setText(bundle.getString("HILFE")); // NOI18N
 
         sprachhilfe_item.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        sprachhilfe_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automation/lang/editor/resources/Hilfe.png"))); // NOI18N
-        sprachhilfe_item.setText("Hilfe...");
+        sprachhilfe_item.setIcon(new javax.swing.ImageIcon(getClass().getResource("/automatonlang/editor/resources/Hilfe.png"))); // NOI18N
+        sprachhilfe_item.setText(bundle.getString("HILFE...")); // NOI18N
         sprachhilfe_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sprachhilfe_itemActionPerformed(evt);
@@ -853,7 +850,7 @@ public class Editor extends javax.swing.JFrame {
         });
         hilfe_menu.add(sprachhilfe_item);
 
-        jMenuItem3.setText("Version und Autor");
+        jMenuItem3.setText(bundle.getString("VERSION UND AUTOR")); // NOI18N
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -938,7 +935,7 @@ public class Editor extends javax.swing.JFrame {
     }//GEN-LAST:event_script_open_buttonActionPerformed
 
     private void neues_script_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neues_script_buttonActionPerformed
-       tabbed_pane.insertTab("Unbenannt", null, new Panel(), "", tabbed_pane.getTabCount());
+       tabbed_pane.insertTab(java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("UNBENANNT"), null, new Panel(), "", tabbed_pane.getTabCount());
        tabbed_pane.setSelectedIndex(tabbed_pane.getTabCount() - 1);
        tabbed_pane.remove(0);
     }//GEN-LAST:event_neues_script_buttonActionPerformed
@@ -948,7 +945,7 @@ public class Editor extends javax.swing.JFrame {
     }//GEN-LAST:event_ausführen_itemActionPerformed
 
     private void neues_script_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neues_script_itemActionPerformed
-       tabbed_pane.insertTab("Unbenannt", null, new Panel(), "", tabbed_pane.getTabCount());
+       tabbed_pane.insertTab(java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("UNBENANNT"), null, new Panel(), "", tabbed_pane.getTabCount());
        tabbed_pane.setSelectedIndex(tabbed_pane.getTabCount() - 1);
     }//GEN-LAST:event_neues_script_itemActionPerformed
 
@@ -1078,7 +1075,7 @@ public class Editor extends javax.swing.JFrame {
     }//GEN-LAST:event_öffnen_buttonActionPerformed
 
     private void neu_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neu_buttonActionPerformed
-       tabbed_pane.insertTab("Unbenannt", null, new Panel(), "", tabbed_pane.getTabCount());
+       tabbed_pane.insertTab(java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("UNBENANNT"), null, new Panel(), "", tabbed_pane.getTabCount());
        tabbed_pane.setSelectedIndex(tabbed_pane.getTabCount() - 1);
     }//GEN-LAST:event_neu_buttonActionPerformed
 
@@ -1206,7 +1203,7 @@ public class Editor extends javax.swing.JFrame {
        */
       try {
          for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
+            if ("Nimbus" == info.getName()) {
                javax.swing.UIManager.setLookAndFeel(info.getClassName());
                break;
             }
@@ -1381,32 +1378,6 @@ public class Editor extends javax.swing.JFrame {
       return null;
    }
 
-   private void loadExamples() {
-      int num = 0;
-      for (String path : EXAMPLES) {
-         path = "/automation/lang/editor/resources/examples/" + path;
-         path = getClass().getResource(path).getPath();
-         File file = new File(path);
-         if (file.getName().endsWith(FILE_ENDING)) {
-            JMenuItem item = new JMenuItem();
-            item.setText(file.getName().replace('_', ' ').substring(0, file.getName().replace('_', ' ').length() - 3));
-            item.setActionCommand(num + "");
-            beispiele_menu.add(item);
-            item.addActionListener(new ActionListener() {
-
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                  String path = "/automation/lang/editor/resources/examples/" + EXAMPLES[Integer.parseInt(e.getActionCommand())];
-                  öffnen(new File[]{
-                             new File(getClass().getResource(path).getFile())
-                          });
-               }
-            });
-         }
-         num++;
-      }
-   }
-
    private synchronized void updateTodoList() {
       todo_table.removeAll();
       ArrayList<Object[]> objlist = new ArrayList<Object[]>();
@@ -1469,10 +1440,10 @@ public class Editor extends javax.swing.JFrame {
       if (tree.getMode() == Tree.Mode.FINITE) {
          if (ret.succeeded) {
             autesten_ausgabe.setBackground(Color.GREEN.brighter().brighter());
-            str = "Akzeptiert";
+            str = java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("AKZEPTIERT");
          } else {
             autesten_ausgabe.setBackground(Color.RED.brighter().brighter());
-            str = "Nicht akzeptiert";
+            str = java.util.ResourceBundle.getBundle("automatonlang/editor/resources/localizations/localization").getString("NICHT AKZEPTIERT");
          }
       } else if (tree.getMode() == Tree.Mode.MEALY) {
          str = ret.text;
